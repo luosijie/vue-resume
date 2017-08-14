@@ -92,8 +92,11 @@
         </li>
       </ul>
     </div>
-    <button class="sap" @click="saveAsPDF">Save as Image</button>
+    <button class="sap" @click="saveAsImage">Save as Image</button>
     <div class="footer">
+      <a href="https://github.com/luosijie/vue-resume" target="_blank">
+        <img src="./assets/social-github.png" height="36" width="36" alt="">
+      </a>
       vue-resume designed by <a href="https://github.com/luosijie">Jesse Luo</a>
     </div>
   </div>
@@ -122,7 +125,7 @@ export default {
     Brief
   },
   methods: {
-    saveAsPDF: function () {
+    saveAsImage: function () {
       let resume = document.querySelector('.resume')
       html2canvas(resume).then(function (canvas) {
         canvas.toBlob(function (blob) {
@@ -295,6 +298,12 @@ export default {
       a{
         text-decoration: none;
         color: #4aa74f;
+        &:first-child{
+          display: block;
+          text-align: center;
+          line-height: 0;
+          margin-top: 15px;
+        }
       }
     }
   }

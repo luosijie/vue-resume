@@ -6,7 +6,7 @@
       <span class="date" contenteditable="true">{{ date }}</span>
     </div>
     <p contenteditable="true">
-      Hi there! I’m a global citizen passionate about people, stories and technology. You’ll find me creating where they intersect, transforming ideas into digital products that people love to interact with. I’m focused on supporting entrepreneurs, startups and agencies around the world to achieve successful interactive design projects involving Web, Mobile and Responsive experiences. al products that people love to interact with. I’m focused on supporting entrepreneurs
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit metus in libero rutrum congue aliquam eu libero. Donec tristique est pharetra fringilla sollicitudin. Etiam eu ipsum vitae nulla tincidunt scelerisque semper id arcu. Phasellus quam tellus, laoreet id felis a, dignissim facilisis orci. Mauris feugiat vulputate quam quis tincidunt. In eleifend augue eu tristique bibendum. Donec gravida, eros sed iaculis iaculis, magna est finibus tortor, ultricies accumsan diam lorem non neque. 
     </p>
   </ListItem>
 </template>
