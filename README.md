@@ -1,6 +1,6 @@
-# vue-resume
-
-> A Vue.js project
+<p align="center">
+  <img src="https://github.com/luosijie/Front-end-Blog/blob/master/img/logo_vue_resume.jpg?raw=true">
+</p>
 
 ## Build Setup
 
