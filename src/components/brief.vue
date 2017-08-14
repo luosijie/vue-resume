@@ -1,7 +1,7 @@
 <template>
   <div class="brief">
     <div class="avatar">
-      <EditImage :src="require('@/assets/photo.jpg')" width="212" height="212" :isCircle="true" class="img"></EditImage>
+      <EditImage :src="require('@/assets/logo_name.png')" width="212" height="212" :isCircle="true" class="img"></EditImage>
       <!-- <img src="./assets/photo.png" alt="photo"> -->
       <div class="name" contenteditable="true">Jesse Luo</div>
       <div class="job" contenteditable="true">Front-End</div>
