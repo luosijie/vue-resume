@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="https://github.com/luosijie/Front-end-Blog/blob/master/img/logo_vue_resume.jpg?raw=true">
+  <a href="https://luosijie.github.io/vue-resume/#/">
+    <img src="https://github.com/luosijie/Front-end-Blog/blob/master/img/logo_vue_resume.jpg?raw=true">
+  </a>
 </p>
 
 ### Usage
