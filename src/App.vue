@@ -92,7 +92,8 @@
         </li>
       </ul>
     </div>
-    <button class="sap" @click="saveAsImage">Save as Image</button>
+    <button class="save-as-png" @click="saveAsImage">Save as Image</button>
+    <button class="save-as-pdf" @click="saveAsPdf">Save as PDF</button>
     <div class="footer">
       <a href="https://github.com/luosijie/vue-resume" target="_blank">
         <img src="./assets/social-github.png" height="36" width="36" alt="">
@@ -112,6 +113,7 @@ import ListItemInfo from '@/components/list-item-info'
 import html2canvas from '@/assets/js/html2canvas.js'
 import FileSaver from 'file-saver'
 import Brief from '@/components/brief'
+import JsPDF from 'jspdf'
 
 export default {
   name: 'app',
@@ -125,7 +127,12 @@ export default {
     Brief
   },
   methods: {
-    saveAsImage: function () {
+    saveAsPdf () {
+      const pdf = new JsPDF()
+      pdf.text('Hello Vue Resume', 80, 5)
+      pdf.save('vue-resum.pdf')
+    },
+    saveAsImage () {
       let resume = document.querySelector('.resume')
       html2canvas(resume).then(function (canvas) {
         canvas.toBlob(function (blob) {
@@ -252,11 +259,10 @@ export default {
       }
       
     }
-    button.sap{
+    .save-as-png, .save-as-pdf{
       position: absolute;
       top: 65px;
       left: 50%;
-      margin-left: 478px;
       background-color: white;
       border: 1px solid #dad8d7;
       cursor: pointer;
@@ -265,6 +271,12 @@ export default {
       &:hover{
         background-color: #f8f8f8;
       }
+    }
+    .save-as-png {
+      margin-left: 478px;
+    }
+    .save-as-pdf {
+      margin-left: 370px;
     }
     .guide{
       border: 1px solid #dad8d7;
