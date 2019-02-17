@@ -77,7 +77,6 @@
             </ul>
         </div>
         <button class="save-as-png" @click="saveAsImage">Save as Image</button>
-        <button class="save-as-pdf" @click="saveAsPdf">Save as PDF</button>
         <div class="footer">
             <a href="https://github.com/luosijie/vue-resume" target="_blank">
                 <img src="./assets/social-github.png" height="36" width="36" alt="">
@@ -96,7 +95,6 @@
     import html2canvas from '@/assets/js/html2canvas.js'
     import FileSaver from 'file-saver'
     import Brief from '@/components/brief'
-    import GeneratePDF from '@/utils/generatePDF'
 
     export default {
         name: 'app',
@@ -110,11 +108,6 @@
             Brief
         },
         methods: {
-            saveAsPdf () {
-                const resume = document.querySelector('.resume')
-                const pdf = new GeneratePDF(resume)
-                pdf.generate()
-            },
             saveAsImage () {
                 let resume = document.querySelector('.resume')
                 html2canvas(resume).then(canvas => {
