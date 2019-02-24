@@ -16,12 +16,14 @@ class GeneratePDF {
             const text = container
             const style = window.getComputedStyle(text)
             const fontSize = style['font-size'].match(/(\d*)px/)[1]
-            const fontWight = style['font-weight']
+            const fontColor = this._rgb2hex(style['color'])
+            const fontWight = Number(style['font-weight'])
             const rect = text.getBoundingClientRect()
             const elem = {
                 text: container.innerText,
                 fontSize: fontSize / 2,
-                bold: Number(fontWight) > 400,
+                color: fontColor,
+                bold: fontWight > 400,
                 absolutePosition: {
                     x: (rect.left - this.containerRect.left) / 2.4,
                     y: (rect.top - this.containerRect.top) / 2.4
@@ -36,6 +38,15 @@ class GeneratePDF {
                 this._traverseContainer(elem)
             })
         }
+    }
+
+    _rgb2hex (color) {
+        const rgb = color.split(',')
+        const r = parseInt(rgb[0].split('(')[1])
+        const g = parseInt(rgb[1])
+        const b = parseInt(rgb[2].split(')')[0])
+        const hex = '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+        return hex
     }
 
     generate () {
