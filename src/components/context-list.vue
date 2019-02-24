@@ -8,10 +8,14 @@
             <button class="add" @click="add" :class="{ 'icon-margin-right': icon }">+</button>
         </div>
         <ul id="luo">
-            <ListItemAbout v-if="title == 'About me'" v-for="item in arry" :key="item.id"></ListItemAbout>
-            <ListItemSkill v-if="title == 'Skill'" v-for="item in arry" :key="item.id"></ListItemSkill>
+            <ListItemAbout v-if="title === 'About me'" v-for="item in arry" :key="item.id"></ListItemAbout>
+            <ListItemSkill v-if="title === 'Skill'" v-for="item in arry" :key="item.id"></ListItemSkill>
             <ListItemEducation v-if="title == 'Education'" v-for="item in arry" :key="item.id"></ListItemEducation>
-            <ListItemExperience v-if="title == 'Working Experience'" v-for="item in arry" :key="item.id"></ListItemExperience>
+            <ListItemExperience
+                v-if="title == 'Working Experience'"
+                v-for="item in arry"
+                :key="item.id"
+            ></ListItemExperience>
             <ListItemInfo v-if="icon" v-for="item in arry" :key="item.id"></ListItemInfo>
             <slot name="listItem"></slot>
         </ul>
@@ -58,7 +62,6 @@ export default {
         }
     }
 }
-
 </script>
 <style lang="less">
 .context-list {
@@ -115,5 +118,4 @@ export default {
 .icon-margin-right {
     margin-right: 15px;
 }
-
 </style>
