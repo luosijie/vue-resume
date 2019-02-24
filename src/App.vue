@@ -8,44 +8,44 @@
                         title="1860***3412"
                         :image="require('@/assets/contact-phone.png')"
                         slot="listItem"
-                    ></ListItemInfo>
+                    />
                     <ListItemInfo
                         title="luo_sj@163.com"
                         :image="require('@/assets/contact-mail.png')"
                         slot="listItem"
-                    ></ListItemInfo>
+                    />
                     <ListItemInfo
                         title="lsj***inhao"
                         :image="require('@/assets/social-wechat.png')"
                         slot="listItem"
-                    ></ListItemInfo>
+                    />
                     <ListItemInfo
                         title="155***9564"
                         :image="require('@/assets/social-qq.png')"
                         slot="listItem"
-                    ></ListItemInfo>
+                    />
                 </ContextList>
                 <ContextList title="SOCIAL" :icon="require('@/assets/title-contact.png')">
                     <ListItemInfo
                         title="github.com/luosijie"
                         :image="require('@/assets/social-github.png')"
                         slot="listItem"
-                    ></ListItemInfo>
+                    />
                     <ListItemInfo
                         title="dribbble.com/luosj"
                         :image="require('@/assets/social-dribbble.png')"
                         slot="listItem"
-                    ></ListItemInfo>
+                    />
                     <ListItemInfo
                         title="behance.net/jesseluo"
                         :image="require('@/assets/social-behance.png')"
                         slot="listItem"
-                    ></ListItemInfo>
+                    />
                     <ListItemInfo
                         title="i.ui.cn/ucenter/122744"
                         :image="require('@/assets/social-uicn.png')"
                         slot="listItem"
-                    ></ListItemInfo>
+                    />
                 </ContextList>
             </div>
             <div class="right">
@@ -203,80 +203,7 @@ p {
             box-sizing: border-box;
             float: left;
             background-color: #fdfefe;
-
-            .brief {
-                height: 630px;
-                background-color: #f6f7f7;
-
-                .avatar {
-                    height: 500px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-
-                    & > .img {
-                        margin-bottom: 45px;
-                    }
-
-                    .name {
-                        font-size: 32px;
-                        margin-bottom: 14px;
-                    }
-
-                    .job {
-                        font-size: 24px;
-                        color: #555;
-                        margin-bottom: 16px;
-                    }
-
-                    .location {
-                        display: flex;
-                        align-itmes: center;
-
-                        .location-name {
-                            font-size: 20px;
-                            font-weight: bold;
-                            margin-left: 10px;
-                        }
-                    }
-                }
-
-                .info {
-                    height: 128px;
-
-                    ul {
-                        height: 100%;
-                        display: flex;
-                        border-top: 1px solid #dad8d7;
-                        border-bottom: 1px solid #dad8d7;
-
-                        li:not(:last-child) {
-                            border-right: 1px solid #dad8d7;
-                        }
-
-                        li {
-                            width: 33.3333333%;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            text-align: center;
-
-                            .value {
-                                margin-bottom: 10px;
-                                font-size: 24px;
-                                font-weight: bold;
-                            }
-
-                            .key {
-                                font-size: 16px;
-                                font-weight: bold;
-                                color: #555;
-                            }
-                        }
-                    }
-                }
-            }
+            position: relative;
         }
 
         .right {

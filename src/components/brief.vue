@@ -13,16 +13,19 @@
         <div class="info">
             <ul>
                 <li>
-                    <div class="value" contenteditable="true">Male</div>
-                    <div class="key" contenteditable="true">SEX</div>
+                    <span class="value" contenteditable="true">Male</span>
+                    <br>
+                    <span class="key" contenteditable="true">SEX</span>
                 </li>
                 <li>
-                    <div class="value" contenteditable="true">26</div>
-                    <div class="key" contenteditable="true">AGE</div>
+                    <span class="value" contenteditable="true">26</span>
+                    <br>
+                    <span class="key" contenteditable="true">AGE</span>
                 </li>
                 <li>
-                    <div class="value" contenteditable="true">B.A.</div>
-                    <div class="key" contenteditable="true">DEGREE</div>
+                    <span class="value" contenteditable="true">B.A.</span>
+                    <br>
+                    <span class="key" contenteditable="true">DEGREE</span>
                 </li>
             </ul>
         </div>
@@ -39,6 +42,7 @@
 </script>
 <style lang="less">
     .brief {
+        width: 100%;
         height: 630px;
         background-color: #f6f7f7;
 
@@ -78,24 +82,27 @@
 
         .info {
             height: 128px;
-
-            ul {
+            width: 100%;
+            overflow: hidden;
+            border-top: 1px solid #dad8d7;
+            border-bottom: 1px solid #dad8d7;
+            &>ul {
                 height: 100%;
-                display: flex;
-                border-top: 1px solid #dad8d7;
-                border-bottom: 1px solid #dad8d7;
-
                 li:not(:last-child) {
                     border-right: 1px solid #dad8d7;
                 }
 
                 li {
-                    width: 33.3333333%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
+                    float: left;
+                    width: 33.1%;
+                    height: 100%;
+                    overflow: hidden;
                     text-align: center;
-
+                    padding-top: 25px;
+                    span {
+                        display: inline-block;
+                        margin: 0 auto;
+                    }
                     .value {
                         margin-bottom: 10px;
                         font-size: 24px;

@@ -13,17 +13,22 @@ class GeneratePDF {
     _traverseContainer (container) {
         // get all texts
         if (container.innerText && !container.children.length) {
-            const rect = container.getBoundingClientRect()
-            const text = {
+            const text = container
+            const style = window.getComputedStyle(text)
+            const fontSize = style['font-size'].match(/(\d*)px/)[1]
+            const fontWight = style['font-weight']
+            const rect = text.getBoundingClientRect()
+            const elem = {
                 text: container.innerText,
-                fontSize: 12,
+                fontSize: fontSize / 2,
+                bold: Number(fontWight) > 400,
                 absolutePosition: {
-                    x: (rect.left - this.containerRect.left) / 2.3,
-                    y: (rect.top - this.containerRect.top) / 2.3
+                    x: (rect.left - this.containerRect.left) / 2.4,
+                    y: (rect.top - this.containerRect.top) / 2.4
                 }
             }
-            this.definition.content.push(text)
-            console.log(rect)
+            this.definition.content.push(elem)
+            console.log(Number(fontWight) > 400, fontWight)
         }
         // traverse children
         if (container.children) {
