@@ -1,8 +1,14 @@
 <template>
     <ListItem class="list-item-education">
-        <span class="school" contenteditable="true">{{ school }}</span>
-        <span class="major" contenteditable="true">{{ major }}</span>
-        <span class="date" contenteditable="true">{{ date }}</span>
+        <div class="school">
+            <span contenteditable="true">{{ school }}</span>
+        </div>
+        <div class="major">
+            <span contenteditable="true">{{ major }}</span>
+        </div>
+        <div class="date">
+            <span contenteditable="true">{{ date }}</span>
+        </div>
     </ListItem>
 </template>
 <script>

@@ -8,15 +8,11 @@
             <button class="add" @click="add" :class="{ 'icon-margin-right': icon }">+</button>
         </div>
         <ul id="luo">
-            <ListItemAbout v-if="title === 'About me'" v-for="item in arry" :key="item.id"></ListItemAbout>
-            <ListItemSkill v-if="title === 'Skill'" v-for="item in arry" :key="item.id"></ListItemSkill>
-            <ListItemEducation v-if="title == 'Education'" v-for="item in arry" :key="item.id"></ListItemEducation>
-            <ListItemExperience
-                v-if="title == 'Working Experience'"
-                v-for="item in arry"
-                :key="item.id"
-            ></ListItemExperience>
-            <ListItemInfo v-if="icon" v-for="item in arry" :key="item.id"></ListItemInfo>
+            <ListItemAbout v-if="title === 'About me'" v-for="item in arry" :key="item.id"/>
+            <ListItemSkill v-if="title === 'Skill'" v-for="item in arry" :key="item.id"/>
+            <ListItemEducation v-if="title == 'Education'" v-for="item in arry" :key="item.id"/>
+            <ListItemExperience v-if="title == 'Working Experience'" v-for="item in arry" :key="item.id"/>
+            <ListItemInfo v-if="icon" v-for="item in arry" :key="item.id"/>
             <slot name="listItem"></slot>
         </ul>
     </div>
