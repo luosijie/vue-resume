@@ -6,7 +6,7 @@ class GeneratePDF {
         this.container = container
         this.containerRect = container.getBoundingClientRect()
         this.pdfmake = pdfmake
-        this.ratio = 2.2
+        this.ratio = 2.1
         this.definition = {
             info: {
                 title: 'Vue Resume',
@@ -50,7 +50,7 @@ class GeneratePDF {
         const elem = {
             text: container.innerText,
             fontSize: fontSize / (this.ratio - 0.2),
-            lineHeight: 1.3,
+            lineHeight: 1,
             color: fontColor,
             bold: fontWight > 400,
             absolutePosition: {
