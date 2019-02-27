@@ -1,5 +1,5 @@
 <template>
-    <ListItem class="list-item-skill">
+    <ListItem class="list-item-skill" render-type="canvas">
         <input class="title" type="text" name="percent" v-model="dataTitle">
         <span class="line">
             <span class="show" :style="{ width: dataPercent + '%', background: selectColor }"/>

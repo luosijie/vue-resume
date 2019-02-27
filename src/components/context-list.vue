@@ -2,10 +2,10 @@
     <div class="context-list" :class="{ 'icon-margin-bottom': icon }">
         <div class="list-heading" :class="{ 'icon-class': icon }">
             <div class="title">
-                <EditImage v-if="icon" :src="icon" height="36" width="36" class="img"></EditImage>
+                <EditImage v-if="icon" :src="icon" height="36" width="36" class="img"/>
                 <h2 class="title" contenteditable="true">{{title}}</h2>
             </div>
-            <button class="add" @click="add" :class="{ 'icon-margin-right': icon }">+</button>
+            <div class="button add" @click="add" :class="{ 'icon-margin-right': icon }">+</div>
         </div>
         <ul id="luo">
             <ListItemAbout v-if="title === 'About me'" v-for="item in arry" :key="item.id"/>
@@ -86,9 +86,11 @@ export default {
             display: none;
         }
 
-        button {
+        .button {
             width: 30px;
             height: 30px;
+            line-height: 30px;
+            text-align: center;
             font-size: 24px;
             border-radius: 50%;
             background: none;

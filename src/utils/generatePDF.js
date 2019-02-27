@@ -1,4 +1,5 @@
 import pdfmake from 'pdfmake'
+import html2canvas from '@/assets/js/html2canvas.js'
 
 class GeneratePDF {
     constructor (container) {
@@ -26,6 +27,10 @@ class GeneratePDF {
         if (container.tagName === 'IMG') {
             this._addImg(container)
         }
+        if (container.getAttribute('render-type') === 'canvas') {
+            console.log('elem match ->', container.className)
+            this._addCanvas(container)
+        }
         // traverse children
         if (container.children) {
             Array.prototype.forEach.call(container.children, elem => {
@@ -45,6 +50,7 @@ class GeneratePDF {
         const elem = {
             text: container.innerText,
             fontSize: fontSize / (this.ratio - 0.2),
+            lineHeight: 1.3,
             color: fontColor,
             bold: fontWight > 400,
             absolutePosition: {
@@ -70,6 +76,22 @@ class GeneratePDF {
         this.definition.content.push(elem)
     }
 
+    async _addCanvas (container) {
+        const canvas = await html2canvas(container)
+        const rect = container.getBoundingClientRect()
+        const elem = {
+            image: canvas.toDataURL(),
+            width: rect.width / this.ratio,
+            height: rect.height / this.ratio,
+            absolutePosition: {
+                x: (rect.left - this.containerRect.left) / this.ratio,
+                y: (rect.top - this.containerRect.top) / this.ratio
+            }
+        }
+        this.definition.content.push(elem)
+        console.log('获取到canvas数据', canvas.toDataURL())
+    }
+
     _rgb2hex (color) {
         const rgb = color.split(',')
         const r = parseInt(rgb[0].split('(')[1])
@@ -81,7 +103,9 @@ class GeneratePDF {
 
     generate () {
         this._traverseContainer(this.container)
-        this.pdfmake.createPdf(this.definition).open()
+        setTimeout(() => {
+            this.pdfmake.createPdf(this.definition).open()
+        }, 1000)
     }
 }
 
