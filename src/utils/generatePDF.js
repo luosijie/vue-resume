@@ -23,13 +23,16 @@ class GeneratePDF {
         // when text matches
         if (container.innerText && !container.children.length) {
             this._addText(container)
+            container.style.opacity = 0
         }
         if (container.tagName === 'IMG') {
             this._addImg(container)
+            container.style.opacity = 0
         }
         if (container.getAttribute('render-type') === 'canvas') {
             console.log('elem match ->', container.className)
             this._addCanvas(container)
+            container.style.opacity = 0
         }
         // traverse children
         if (container.children) {
@@ -76,7 +79,7 @@ class GeneratePDF {
         this.definition.content.push(elem)
     }
 
-    async _addCanvas (container) {
+    async _addCanvas (container, isBackground = false) {
         const canvas = await html2canvas(container)
         const rect = container.getBoundingClientRect()
         const elem = {
@@ -88,8 +91,12 @@ class GeneratePDF {
                 y: (rect.top - this.containerRect.top) / this.ratio
             }
         }
-        this.definition.content.push(elem)
-        console.log('获取到canvas数据', canvas.toDataURL())
+        if (isBackground) {
+            this.definition.background = elem
+        } else {
+            this.definition.content.push(elem)
+        }
+        return elem
     }
 
     _rgb2hex (color) {
@@ -103,6 +110,7 @@ class GeneratePDF {
 
     generate () {
         this._traverseContainer(this.container)
+        this._addCanvas(this.container, true)
         setTimeout(() => {
             this.pdfmake.createPdf(this.definition).open()
         }, 1000)
