@@ -25,19 +25,40 @@ class GeneratePDF {
             this._addText(container)
             container.style.opacity = 0
         }
-        if (container.tagName === 'IMG') {
+        // when image matches
+        if (container.tagName === 'IMG' && container.getAttribute('render-type') !== 'background') {
             this._addImg(container)
             container.style.opacity = 0
         }
-        if (container.getAttribute('render-type') === 'canvas') {
-            console.log('elem match ->', container.className)
-            this._addCanvas(container)
-            container.style.opacity = 0
-        }
+        // when canvas matches
+        // if (container.getAttribute('render-type') === 'canvas') {
+        //     console.log('elem match ->', container.className)
+        //     this._addCanvas(container)
+        //     container.style.opacity = 0
+        // }
         // traverse children
         if (container.children) {
             Array.prototype.forEach.call(container.children, elem => {
                 this._traverseContainer(elem)
+            })
+        }
+    }
+    _restore (container) {
+        // when text matches
+        console.log(container.style.opacity)
+        if (container.style.opacity === '0') {
+            container.style.opacity = 1
+        }
+        // when canvas matches
+        // if (container.getAttribute('render-type') === 'canvas') {
+        //     console.log('elem match ->', container.className)
+        //     this._addCanvas(container)
+        //     container.style.opacity = 0
+        // }
+        // traverse children
+        if (container.children) {
+            Array.prototype.forEach.call(container.children, elem => {
+                this._restore(elem)
             })
         }
     }
@@ -78,6 +99,12 @@ class GeneratePDF {
         }
         this.definition.content.push(elem)
     }
+    _addBackground () {
+        this.container.style.border = '1px solid transparent'
+        this._addCanvas(this.container, true)
+        this.container.style.border = '1px solid #dad8d7'
+        this._restore(this.container)
+    }
 
     async _addCanvas (container, isBackground = false) {
         const canvas = await html2canvas(container)
@@ -110,7 +137,7 @@ class GeneratePDF {
 
     generate () {
         this._traverseContainer(this.container)
-        this._addCanvas(this.container, true)
+        this._addBackground()
         setTimeout(() => {
             this.pdfmake.createPdf(this.definition).open()
         }, 1000)

@@ -5,7 +5,6 @@
             <div class="name" contenteditable="true">Jesse Luo</div>
             <div class="job" contenteditable="true">Front-End</div>
             <div class="location">
-                <!-- <img src="../assets/location.png"  alt="" width="22" height="22"> -->
                 <div class="location-name" contenteditable="true">Xiamen, China</div>
             </div>
         </div>
