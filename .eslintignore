@@ -1,3 +1,4 @@
 build/*.js
 config/*.js
+src/assets/js/*.js
 src/assets/js/html2canvas.js
