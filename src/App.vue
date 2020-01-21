@@ -3,7 +3,7 @@
         <div class="resume">
             <div class="left">
                 <Brief/>
-                <ContextList title="CONTACT" :icon="require('@/assets/title-contact.png')">
+                <ContextList title="CONTACT" title-size="20px" :icon="require('@/assets/title-contact.png')">
                     <ListItemInfo
                         title="1860***3412"
                         :image="require('@/assets/contact-phone.png')"
@@ -25,7 +25,7 @@
                         slot="listItem"
                     />
                 </ContextList>
-                <ContextList title="SOCIAL" :icon="require('@/assets/title-contact.png')">
+                <ContextList title="SOCIAL" title-size="20px" :icon="require('@/assets/title-contact.png')">
                     <ListItemInfo
                         title="github.com/luosijie"
                         :image="require('@/assets/social-github.png')"
@@ -47,16 +47,33 @@
                         slot="listItem"
                     />
                 </ContextList>
+                <ContextList title="Skill" title-size="20px" :icon="require('@/assets/title-contact.png')">
+                    <ListItemInfo
+                        title="Vue"
+                        :image="require('@/assets/skill-vue.png')"
+                        slot="listItem"
+                    />
+                    <ListItemInfo
+                        title="Node"
+                        :image="require('@/assets/skill-node.png')"
+                        slot="listItem"
+                    />
+                    <ListItemInfo
+                        title="MongoDB"
+                        :image="require('@/assets/skill-mongo.png')"
+                        slot="listItem"
+                    />
+                </ContextList>
             </div>
             <div class="right">
                 <ContextList title="About me">
                     <ListItemAbout slot="listItem"/>
                 </ContextList>
-                <ContextList title="Skill">
+                <!-- <ContextList title="Skill">
                     <ListItemSkill slot="listItem" title="JavaScript" :percent="80"/>
                     <ListItemSkill slot="listItem" title="Html5 + css3" :percent="60"/>
                     <ListItemSkill slot="listItem" title="Vue" :percent="30"/>
-                </ContextList>
+                </ContextList> -->
                 <ContextList title="Education">
                     <ListItemEducation
                         slot="listItem"
@@ -204,6 +221,7 @@ p {
             float: left;
             background-color: #fdfefe;
             position: relative;
+            border-right: 1px solid #dad8d7;
         }
 
         .right {
