@@ -2,8 +2,8 @@
     <div class="context-list" :class="{ 'icon-margin-bottom': icon }">
         <div class="list-heading" :class="{ 'icon-class': icon }">
             <div class="title">
-                <EditImage v-if="icon" :src="icon" height="36" width="36" class="img"/>
-                <h2 class="title" contenteditable="true">{{title}}</h2>
+                <EditImage v-if="icon" :src="icon" height="28" width="28" class="img"/>
+                <h2 class="title" :style="{fontSize: titleSize}" contenteditable="true">{{title}}</h2>
             </div>
             <div class="button add" @click="add" :class="{ 'icon-margin-right': icon }">+</div>
         </div>
@@ -38,6 +38,10 @@ export default {
         title: {
             type: String,
             default: 'Title'
+        },
+        titleSize: {
+            type: String,
+            default: '24px'
         },
         icon: {
             type: String,

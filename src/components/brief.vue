@@ -41,18 +41,18 @@
 <style lang="less">
     .brief {
         width: 100%;
-        height: 630px;
+        // height: 575px;
         background-color: #f6f7f7;
 
         .avatar {
-            height: 500px;
+            height: 450px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
             &>.img {
-                margin-bottom: 45px;
+                margin-bottom: 40px;
             }
 
             .name {
@@ -79,7 +79,7 @@
         }
 
         .info {
-            height: 128px;
+            height: 110px;
             width: 100%;
             overflow: hidden;
             border-top: 1px solid #dad8d7;

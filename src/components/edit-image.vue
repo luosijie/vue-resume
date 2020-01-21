@@ -10,11 +10,11 @@ export default {
     props: {
         width: {
             type: String,
-            default: '36'
+            default: '28'
         },
         height: {
             type: String,
-            default: '36'
+            default: '28'
         },
         src: {
             type: String,
@@ -53,6 +53,7 @@ export default {
     img {
         width: 100%;
         height: 100%;
+        object-fit: contain;
     }
 
     input {
