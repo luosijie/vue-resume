@@ -31,14 +31,14 @@ export default {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #e9e8e8;
-    height: 80px;
+    height: 60px;
 
     .img {
         margin: 0 20px 0 50px;
     }
 
     span {
-        font-size: 20px;
+        font-size: 16px;
         color: #555;
     }
 }

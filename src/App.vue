@@ -47,6 +47,18 @@
                         slot="listItem"
                     />
                 </ContextList>
+                <ContextList title="Skill" :icon="require('@/assets/title-contact.png')">
+                    <ListItemInfo
+                        title="JavaScript"
+                        :image="require('@/assets/social-github.png')"
+                        slot="listItem"
+                    />
+                    <ListItemInfo
+                        title="Node"
+                        :image="require('@/assets/social-dribbble.png')"
+                        slot="listItem"
+                    />
+                </ContextList>
             </div>
             <div class="right">
                 <ContextList title="About me">
