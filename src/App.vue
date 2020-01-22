@@ -158,7 +158,7 @@ import ListItemInfo from '@/components/list-item-info'
 import html2canvas from '@/assets/js/html2canvas.js'
 import FileSaver from 'file-saver'
 import Brief from '@/components/brief'
-import GeneratePDF from '@/utils/generatePDF'
+// import GeneratePDF from '@/utils/generatePDF'
 
 export default {
     name: 'app',
@@ -172,11 +172,11 @@ export default {
         Brief
     },
     methods: {
-        saveAsPdf () {
-            const resume = document.querySelector('.resume')
-            const pdf = new GeneratePDF(resume)
-            pdf.generate()
-        },
+        // saveAsPdf () {
+        //     const resume = document.querySelector('.resume')
+        //     const pdf = new GeneratePDF(resume)
+        //     pdf.generate()
+        // },
         saveAsImage () {
             let resume = document.querySelector('.resume')
             html2canvas(resume).then(canvas => {
