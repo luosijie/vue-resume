@@ -1,13 +1,13 @@
 <template>
     <ListItem class="list-item-education">
         <div class="school">
-            <span contenteditable="true">{{ school }}</span>
+            <span contenteditable="true" v-html="data.school"/>
         </div>
         <div class="major">
-            <span contenteditable="true">{{ major }}</span>
+            <span contenteditable="true" v-html="data.major"/>
         </div>
         <div class="date">
-            <span contenteditable="true">{{ date }}</span>
+            <span contenteditable="true" v-html="data.date"/>
         </div>
     </ListItem>
 </template>
@@ -19,6 +19,10 @@ export default {
         ListItem
     },
     props: {
+        data: {
+            type: Object,
+            default: () => {}
+        },
         school: {
             type: String,
             default: 'Minjiang University'

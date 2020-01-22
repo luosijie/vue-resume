@@ -2,18 +2,16 @@
     <ListItem class="list-item-experience">
         <div class="heading">
             <div class="company">
-                <span contenteditable="true">{{ company }}</span>
+                <span contenteditable="true" v-html="data.company"/>
             </div>
             <div class="job">
-                <span contenteditable="true">{{ job }}</span>
+                <span contenteditable="true" v-html="data.position"/>
             </div>
             <div class="date">
-                <span contenteditable="true">{{ date }}</span>
+                <span contenteditable="true" v-html="data.date"/>
             </div>
         </div>
-        <p contenteditable="true">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit metus in libero rutrum congue aliquam eu libero. Donec tristique est pharetra fringilla sollicitudin. Etiam eu ipsum vitae nulla tincidunt scelerisque semper id arcu. Phasellus quam tellus, laoreet id felis a, dignissim facilisis orci. Mauris feugiat vulputate quam quis tincidunt. In eleifend augue eu tristique bibendum. Donec gravida, eros sed iaculis iaculis, magna est finibus tortor, ultricies accumsan diam lorem non neque.
-        </p>
+        <p contenteditable="true" v-html="data.description"/>
     </ListItem>
 </template>
 <script>
@@ -24,6 +22,12 @@ export default {
         ListItem
     },
     props: {
+        data: {
+            type: Object,
+            default () {
+                return {}
+            }
+        },
         company: {
             type: String,
             default: 'Google'

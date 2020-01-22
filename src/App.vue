@@ -2,31 +2,18 @@
     <div id="app">
         <div class="resume">
             <div class="left">
-                <Brief/>
+                <Brief :data="defaultData.Brief"/>
                 <ContextList
                     title="CONTACT"
                     title-size="14px"
                     :icon="require('@/assets/title-contact.png')"
                 >
                     <ListItemInfo
-                        title="1860***3412"
-                        :image="require('@/assets/contact-phone.png')"
+                        :title="item.value"
+                        :image="item.icon"
                         slot="listItem"
-                    />
-                    <ListItemInfo
-                        title="luo_sj@163.com"
-                        :image="require('@/assets/contact-mail.png')"
-                        slot="listItem"
-                    />
-                    <ListItemInfo
-                        title="lsj***inhao"
-                        :image="require('@/assets/social-wechat.png')"
-                        slot="listItem"
-                    />
-                    <ListItemInfo
-                        title="155***9564"
-                        :image="require('@/assets/social-qq.png')"
-                        slot="listItem"
+                        v-for="item in defaultData.Contact"
+                        :key="item.key"
                     />
                 </ContextList>
                 <ContextList
@@ -35,24 +22,11 @@
                     :icon="require('@/assets/title-contact.png')"
                 >
                     <ListItemInfo
-                        title="github.com/luosijie"
-                        :image="require('@/assets/social-github.png')"
+                        :title="item.value"
+                        :image="item.icon"
                         slot="listItem"
-                    />
-                    <ListItemInfo
-                        title="dribbble.com/luosj"
-                        :image="require('@/assets/social-dribbble.png')"
-                        slot="listItem"
-                    />
-                    <ListItemInfo
-                        title="behance.net/jesseluo"
-                        :image="require('@/assets/social-behance.png')"
-                        slot="listItem"
-                    />
-                    <ListItemInfo
-                        title="i.ui.cn/ucenter/122744"
-                        :image="require('@/assets/social-uicn.png')"
-                        slot="listItem"
+                        v-for="item in defaultData.Social"
+                        :key="item.key"
                     />
                 </ContextList>
                 <ContextList
@@ -61,79 +35,37 @@
                     :icon="require('@/assets/title-contact.png')"
                 >
                     <ListItemInfo
-                        title="Vue"
-                        :image="require('@/assets/skill-vue.png')"
+                        :title="item.value"
+                        :image="item.icon"
                         slot="listItem"
-                    />
-                    <ListItemInfo
-                        title="Node"
-                        :image="require('@/assets/skill-node.png')"
-                        slot="listItem"
-                    />
-                    <ListItemInfo
-                        title="MongoDB"
-                        :image="require('@/assets/skill-mongo.png')"
-                        slot="listItem"
+                        v-for="item in defaultData.Skill"
+                        :key="item.key"
                     />
                 </ContextList>
             </div>
             <div class="right">
                 <ContextList title="About me">
-                    <ListItemAbout slot="listItem"/>
+                    <ListItemAbout slot="listItem" :data="defaultData.AboutMe"/>
                 </ContextList>
-                <!-- <ContextList title="Skill">
-                    <ListItemSkill slot="listItem" title="JavaScript" :percent="80"/>
-                    <ListItemSkill slot="listItem" title="Html5 + css3" :percent="60"/>
-                    <ListItemSkill slot="listItem" title="Vue" :percent="30"/>
-                </ContextList>-->
                 <ContextList title="Education">
                     <ListItemEducation
                         slot="listItem"
-                        school="Minjiang University"
-                        major="History"
-                        date="2011.9 — 2015.6"
+                        :data="item"
+                        v-for="item in defaultData.Education"
+                        :key="item.school"
                     />
                 </ContextList>
                 <ContextList title="Working Experience">
-                    <ListItemExperience slot="listItem"/>
-                    <ListItemExperience slot="listItem" company="Airbnb"/>
-                    <ListItemExperience slot="listItem" company="Apple"/>
-                    <ListItemExperience slot="listItem" company="facebook"/>
+                    <ListItemExperience
+                        slot="listItem"
+                        v-for="item in defaultData.WorkingExperience"
+                        :data="item"
+                        :key="item.compony"
+                    />
                 </ContextList>
             </div>
         </div>
-        <div class="guide">
-            <ul>
-                <li>
-                    <img src="./assets/guide_click_left.png" height="30" width="30" alt>
-                    <div class="desc">
-                        <h5>Click On Content</h5>
-                        <p>To edit text or image</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="./assets/guide_click_right.png" height="30" width="30" alt>
-                    <div class="desc">
-                        <h5>Right Click On Item</h5>
-                        <p>To delete item</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="./assets/guide_add.png" height="30" width="30" alt>
-                    <div class="desc">
-                        <h5>Click Add Button</h5>
-                        <p>To add item</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="./assets/guide_sai.png" height="30" width="60" alt>
-                    <div class="desc">
-                        <h5>Click Save Button</h5>
-                        <p>To download resume as image</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <Guide/>
         <div class="actions">
             <button @click="saveAsImage">Save as PNG</button>
             <!-- <button @click="saveAsPdf">Save as PDF</button> -->
@@ -158,8 +90,9 @@ import ListItemInfo from '@/components/list-item-info'
 import html2canvas from '@/assets/js/html2canvas.js'
 import FileSaver from 'file-saver'
 import Brief from '@/components/brief'
+import Guide from '@/components/guide'
 // import GeneratePDF from '@/utils/generatePDF'
-
+import defaultData from '@/config/data'
 export default {
     name: 'app',
     components: {
@@ -169,7 +102,13 @@ export default {
         ListItemEducation,
         ListItemExperience,
         ListItemInfo,
-        Brief
+        Brief,
+        Guide
+    },
+    computed: {
+        defaultData () {
+            return defaultData
+        }
     },
     methods: {
         // saveAsPdf () {
@@ -277,38 +216,7 @@ p {
         }
     }
 
-    .guide {
-        border: 1px solid #dad8d7;
-        width: 790px;
-        margin-top: 15px;
-        height: 80px;
-
-        ul {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-
-            li {
-                display: flex;
-                align-items: center;
-
-                img {
-                    margin: 0 10px;
-                }
-
-                h5 {
-                    margin: 0 0 6px 0;
-                }
-
-                p {
-                    margin: 0;
-                    font-size: 12px;
-                }
-            }
-        }
-    }
+    
 
     .footer {
         line-height: 50px;

@@ -2,26 +2,26 @@
     <div class="brief">
         <div class="avatar">
             <EditImage :src="require('@/assets/logo_name.png')" width="100" height="100" :isCircle="true" class="img"/>
-            <div class="name" contenteditable="true">Jesse Luo</div>
-            <div class="job" contenteditable="true">Front-End</div>
+            <div class="name" contenteditable="true" v-html="data.name" @input="contentChange('name', $event)"/>
+            <div class="job" contenteditable="true" v-html="data.position" @input="contentChange('position', $event)"/>
             <div class="location">
-                <div class="location-name" contenteditable="true">Xiamen, China</div>
+                <div class="location-name" contenteditable="true" v-html="data.location" @input="contentChange('location', $event)"/>
             </div>
         </div>
         <div class="info">
             <ul>
                 <li>
-                    <span class="value" contenteditable="true">Male</span>
+                    <span class="value" contenteditable="true" v-html="data.sex" @input="contentChange('sex', $event)"/>
                     <br>
                     <span class="key" contenteditable="true">SEX</span>
                 </li>
                 <li>
-                    <span class="value" contenteditable="true">26</span>
+                    <span class="value" contenteditable="true" v-html="data.age" @input="contentChange('age', $event)"/>
                     <br>
                     <span class="key" contenteditable="true">AGE</span>
                 </li>
                 <li>
-                    <span class="value" contenteditable="true">B.A.</span>
+                    <span class="value" contenteditable="true" v-html="data.degree" @input="contentChange('degree', $event)"/>
                     <br>
                     <span class="key" contenteditable="true">DEGREE</span>
                 </li>
@@ -33,8 +33,20 @@
     import EditImage from '@/components/edit-image'
     export default {
         name: 'Brief',
+        props: {
+            data: {
+                type: Object,
+                default: () => {}
+            }
+        },
         components: {
             EditImage
+        },
+        methods: {
+            contentChange (key, e) {
+                this.data[key] = e.target.innerText
+                console.log('brief-change', this.data)
+            }
         }
     }
 </script>
