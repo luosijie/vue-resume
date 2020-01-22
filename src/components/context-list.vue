@@ -2,8 +2,8 @@
     <div class="context-list" :class="{ 'icon-margin-bottom': icon }">
         <div class="list-heading" :class="{ 'icon-class': icon }">
             <div class="title">
-                <EditImage v-if="icon" :src="icon" height="28" width="28" class="img"/>
-                <h2 class="title" :style="{fontSize: titleSize}" contenteditable="true">{{title}}</h2>
+                <EditImage v-if="icon" :src="icon" height="20" width="20" class="img"/>
+                <span class="name" :style="{fontSize: titleSize}" contenteditable="true">{{title}}</span>
             </div>
             <div class="button add" @click="add" :class="{ 'icon-margin-right': icon }">+</div>
         </div>
@@ -41,7 +41,7 @@ export default {
         },
         titleSize: {
             type: String,
-            default: '24px'
+            default: '16px'
         },
         icon: {
             type: String,
@@ -66,7 +66,7 @@ export default {
 <style lang="less">
 .context-list {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 
     .list-heading {
         display: flex;
@@ -78,7 +78,12 @@ export default {
             align-items: center;
 
             .img {
-                margin: 0 20px 0 50px;
+                margin: 0 20px 0 15px;
+            }
+
+            span.name {
+                margin: 10px 0;
+                font-weight: bold;
             }
         }
 
@@ -91,11 +96,11 @@ export default {
         }
 
         .button {
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
             text-align: center;
-            font-size: 24px;
+            font-size: 16px;
             border-radius: 50%;
             background: none;
             border: 1px solid #dad8d7;

@@ -1,7 +1,7 @@
 <template>
     <div class="brief">
         <div class="avatar">
-            <EditImage :src="require('@/assets/logo_name.png')" width="212" height="212" :isCircle="true" class="img"/>
+            <EditImage :src="require('@/assets/logo_name.png')" width="100" height="100" :isCircle="true" class="img"/>
             <div class="name" contenteditable="true">Jesse Luo</div>
             <div class="job" contenteditable="true">Front-End</div>
             <div class="location">
@@ -45,25 +45,26 @@
         background-color: #f6f7f7;
 
         .avatar {
-            height: 450px;
+            height: 260px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
             &>.img {
-                margin-bottom: 40px;
+                margin-bottom: 10px;
             }
 
             .name {
-                font-size: 32px;
-                margin-bottom: 14px;
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 5px;
             }
 
             .job {
-                font-size: 24px;
+                font-size: 14px;
                 color: #555;
-                margin-bottom: 16px;
+                margin-bottom: 5px;
             }
 
             .location {
@@ -71,7 +72,7 @@
                 align-itmes: center;
 
                 .location-name {
-                    font-size: 20px;
+                    font-size: 12px;
                     font-weight: bold;
                     margin-left: 10px;
                 }
@@ -79,7 +80,6 @@
         }
 
         .info {
-            height: 110px;
             width: 100%;
             overflow: hidden;
             border-top: 1px solid #dad8d7;
@@ -93,22 +93,22 @@
                 li {
                     float: left;
                     width: 33.1%;
+                    box-sizing: border-box;
                     height: 100%;
                     overflow: hidden;
                     text-align: center;
-                    padding-top: 25px;
+                    padding: 10px 0;
                     span {
                         display: inline-block;
                         margin: 0 auto;
                     }
                     .value {
-                        margin-bottom: 10px;
-                        font-size: 24px;
+                        margin-bottom: 5px;
+                        font-size: 14px;
                         font-weight: bold;
                     }
-
                     .key {
-                        font-size: 16px;
+                        font-size: 12px;
                         font-weight: bold;
                         color: #555;
                     }

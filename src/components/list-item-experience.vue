@@ -43,7 +43,7 @@ export default {
 <style lang="less">
 .list-item-experience {
     .heading {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: bold;
         display: flex;
         justify-content: space-between;

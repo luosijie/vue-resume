@@ -3,7 +3,11 @@
         <div class="resume">
             <div class="left">
                 <Brief/>
-                <ContextList title="CONTACT" title-size="20px" :icon="require('@/assets/title-contact.png')">
+                <ContextList
+                    title="CONTACT"
+                    title-size="14px"
+                    :icon="require('@/assets/title-contact.png')"
+                >
                     <ListItemInfo
                         title="1860***3412"
                         :image="require('@/assets/contact-phone.png')"
@@ -25,7 +29,11 @@
                         slot="listItem"
                     />
                 </ContextList>
-                <ContextList title="SOCIAL" title-size="20px" :icon="require('@/assets/title-contact.png')">
+                <ContextList
+                    title="SOCIAL"
+                    title-size="14px"
+                    :icon="require('@/assets/title-contact.png')"
+                >
                     <ListItemInfo
                         title="github.com/luosijie"
                         :image="require('@/assets/social-github.png')"
@@ -47,7 +55,11 @@
                         slot="listItem"
                     />
                 </ContextList>
-                <ContextList title="Skill" title-size="20px" :icon="require('@/assets/title-contact.png')">
+                <ContextList
+                    title="Skill"
+                    title-size="14px"
+                    :icon="require('@/assets/title-contact.png')"
+                >
                     <ListItemInfo
                         title="Vue"
                         :image="require('@/assets/skill-vue.png')"
@@ -73,7 +85,7 @@
                     <ListItemSkill slot="listItem" title="JavaScript" :percent="80"/>
                     <ListItemSkill slot="listItem" title="Html5 + css3" :percent="60"/>
                     <ListItemSkill slot="listItem" title="Vue" :percent="30"/>
-                </ContextList> -->
+                </ContextList>-->
                 <ContextList title="Education">
                     <ListItemEducation
                         slot="listItem"
@@ -93,38 +105,39 @@
         <div class="guide">
             <ul>
                 <li>
-                    <img src="./assets/guide_click_left.png" height="60" width="60" alt>
+                    <img src="./assets/guide_click_left.png" height="30" width="30" alt>
                     <div class="desc">
-                        <h3>Click On Content</h3>
+                        <h5>Click On Content</h5>
                         <p>To edit text or image</p>
                     </div>
                 </li>
                 <li>
-                    <img src="./assets/guide_click_right.png" height="60" width="60" alt>
+                    <img src="./assets/guide_click_right.png" height="30" width="30" alt>
                     <div class="desc">
-                        <h3>Right Click On Item</h3>
+                        <h5>Right Click On Item</h5>
                         <p>To delete item</p>
                     </div>
                 </li>
                 <li>
-                    <img src="./assets/guide_add.png" height="60" width="60" alt>
+                    <img src="./assets/guide_add.png" height="30" width="30" alt>
                     <div class="desc">
-                        <h3>Click Add Button</h3>
+                        <h5>Click Add Button</h5>
                         <p>To add item</p>
                     </div>
                 </li>
                 <li>
-                    <img src="./assets/guide_sai.png" alt>
+                    <img src="./assets/guide_sai.png" height="30" width="60" alt>
                     <div class="desc">
-                        <h3>Click Save Button</h3>
+                        <h5>Click Save Button</h5>
                         <p>To download resume as image</p>
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="action-save">
+        <div class="actions">
             <button @click="saveAsImage">Save as PNG</button>
-            <button @click="saveAsPdf">Save as PDF</button>
+            <!-- <button @click="saveAsPdf">Save as PDF</button> -->
+            <button @click="print">Print</button>
         </div>
         <div class="footer">
             <a href="https://github.com/luosijie/vue-resume" target="_blank">
@@ -171,6 +184,9 @@ export default {
                     FileSaver.saveAs(blob, 'Resume.png')
                 })
             })
+        },
+        print () {
+            window.print()
         }
     }
 }
@@ -205,50 +221,55 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 0;
 
     .resume {
-        width: 1247px;
-        height: 1754px;
+        margin-top: 40px;
+        position: relative;
+        width: 790px;
+        // height: 1754px;
         border: 1px solid #dad8d7;
         background-color: white;
         overflow: hidden;
+        box-sizing: border-box;
 
         .left {
-            width: 380px;
+            width: 240px;
             height: 100%;
             box-sizing: border-box;
             float: left;
             background-color: #fdfefe;
             position: relative;
-            border-right: 1px solid #dad8d7;
         }
 
         .right {
             box-sizing: border-box;
-            width: 867px;
+            width: calc(~'100% - 240px');
             float: left;
-            padding: 50px 40px;
+            padding: 25px 20px;
+            border-left: 1px solid #dad8d7;
 
             p {
-                font-size: 20px;
-                line-height: 32px;
+                font-size: 14px;
+                line-height: 18px;
                 color: #555;
                 text-align: justify;
             }
         }
     }
 
-    .action-save {
+    .actions {
         position: absolute;
-        top: 65px;
+        top: 40px;
         left: 50%;
-        margin-left: 428px;
+        margin-left: 415px;
+        display: flex;
+        flex-direction: column;
         button {
             padding: 5px 8px;
             border-radius: 4px;
             background-color: white;
             border: 1px solid #dad8d7;
+            margin-bottom: 5px;
             cursor: pointer;
             &:hover {
                 background-color: #f8f8f8;
@@ -258,9 +279,9 @@ p {
 
     .guide {
         border: 1px solid #dad8d7;
-        width: 1247px;
+        width: 790px;
         margin-top: 15px;
-        height: 120px;
+        height: 80px;
 
         ul {
             width: 100%;
@@ -277,13 +298,13 @@ p {
                     margin: 0 10px;
                 }
 
-                h3 {
+                h5 {
                     margin: 0 0 6px 0;
                 }
 
                 p {
                     margin: 0;
-                    font-size: 16px;
+                    font-size: 12px;
                 }
             }
         }
@@ -303,6 +324,39 @@ p {
                 margin-top: 15px;
             }
         }
+    }
+}
+@page {
+    size: auto;
+    margin: 0cm;
+    color: #ffffff;
+    // -webkit-print-color-adjust: exact;
+    // print-color-adjust: exact;
+}
+@media print {
+    html,
+    body,
+    #app {
+        font-size: 0 !important;
+        min-height: auto !important;
+        height: auto !important;
+        // min-width: auto !important;
+        // font-family: Microsoft YaHei, tahoma, arial, Hiragino Sans GB;
+    }
+    * {
+        color: #000 !important;
+        overflow: hidden !important;
+    }
+    .resume {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        // width: 100%;
+        margin-top: 0!important;
+        // border: none!important;
+    }
+    .actions, .guide, .footer {
+        display: none!important;
     }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <ListItem class="list-item-info">
-        <EditImage :src="image" class="img"></EditImage>
+        <EditImage :src="image" class="img" height="18" width="18"/>
         <span contenteditable="true">{{ title }}</span>
     </ListItem>
 </template>
@@ -31,14 +31,14 @@ export default {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #e9e8e8;
-    height: 60px;
+    height: 30px;
 
     .img {
-        margin: 0 20px 0 50px;
+        margin: 0 20px 0 15px;
     }
 
     span {
-        font-size: 16px;
+        font-size: 12px;
         color: #555;
     }
 }
