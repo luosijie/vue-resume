@@ -9,7 +9,7 @@
         </div>
         <ul id="luo">
             <ListItemAbout v-if="title === 'About me'" v-for="item in arry" :key="item.id"/>
-            <ListItemSkill v-if="title === 'Skill'" v-for="item in arry" :key="item.id"/>
+            <!-- <ListItemSkill v-if="title === 'Skill'" v-for="item in arry" :key="item.id"/> -->
             <ListItemEducation v-if="title == 'Education'" v-for="item in arry" :key="item.id"/>
             <ListItemExperience v-if="title == 'Working Experience'" v-for="item in arry" :key="item.id"/>
             <ListItemInfo v-if="icon" v-for="item in arry" :key="item.id"/>
